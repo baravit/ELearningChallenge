@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<h2>Hi {{ full_name }}, You are now logged in</h2>
+<div>
+	<ul>
+		<li><a href="/admin/courses_app/course/">Manage Courses</a></li>
+		<li><a href="/admin/courses_app/module/">Manage Modules</a></li>
+		<li><a href="/admin/courses_app/subject/">Manage Subjects</a></li>
+		<li><a href="/admin/courses_app/content/">Manage Contents</a></li>
+		<li><a href="/accounts/logout/">Logout</a></li>
+	</ul>
+</div>
+<div id="courses">
+<h2>Your Courses:</h2>
+	{% for course in courses %}
+		<div id="course" class="course">
+			<p>Title : {{ course.title }}</p>
+			<p>Created in : {{ course.created_date|date }}</p>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
